@@ -27,7 +27,8 @@ with xmlrpc.client.ServerProxy(f"http://localhost:{master_port}/") as proxy:
 
 
 """ 
-additional features are
-1. provide total data count at each worker
-2. Add delay for 3rd task of 10 seconds at each worker.
+Additional features are
+1. Call workers from masters not like running them individually.
+2. provide total data count at each worker
+3. Add delay for 3rd task of 10 seconds at each worker.
 """
