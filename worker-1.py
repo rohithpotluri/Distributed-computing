@@ -6,6 +6,7 @@ from unittest import skip
 from xmlrpc.server import SimpleXMLRPCServer
 import sys
 import json
+import time
 
 # Storage of data
 data_table_am = {}
@@ -49,6 +50,8 @@ def getbyyear(location, year):
         if(list(data_table_am.items())[i][1]['location'] == location
         and list(data_table_am.items())[i][1]['year'] == year):
             list1.append(list(data_table_am.items())[i][1])
+
+    time.sleep(10)
     print(f"Total size of data : {len(list1)}")
     return list1
 
@@ -68,6 +71,5 @@ def main():
     server.register_function(getbyyear)
     server.register_function(get_data)
     server.serve_forever()
-
 if __name__ == '__main__':
     main()

@@ -14,7 +14,6 @@ with xmlrpc.client.ServerProxy(f"http://localhost:{master_port}/") as proxy:
     result = proxy.getbylocation(location)
     for items in result:
         print(items)
-    print(f"Total number of records are: {len(result)}")
     print()
 
     location = 'Chicago'
@@ -28,8 +27,7 @@ with xmlrpc.client.ServerProxy(f"http://localhost:{master_port}/") as proxy:
 
 
 """ 
-    
 additional features are
 1. provide total data count at each worker
-
+2. Add delay for 3rd task of 10 seconds at each worker.
 """

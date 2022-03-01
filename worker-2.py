@@ -2,6 +2,8 @@ from pkgutil import get_data
 from xmlrpc.server import SimpleXMLRPCServer
 import sys
 import json
+import time
+
 
 # Storage of data
 data_table_nz = {}
@@ -11,7 +13,7 @@ with open('data-nz.json') as json_file:
 
 def load_data(group):
     # TODO load data based which portion it handles (am or nz)
-    with open('data-am.json') as json_file:
+    with open('data-nz.json') as json_file:
         data_table_nz= json.load(json_file)
 
 
@@ -44,6 +46,8 @@ def getbyyear(location, year):
         if(list(data_table_nz.items())[i][1]['location'] == location
         and list(data_table_nz.items())[i][1]['year'] == year):
             list1.append(list(data_table_nz.items())[i][1])
+    
+    time.sleep(10)
     print(f"Total size of data : {len(list1)}")
     return list1
 

@@ -1,8 +1,18 @@
+from asyncio import subprocess
+from cProfile import run
 from http import server
+import py_compile
 import string
 from xmlrpc.server import SimpleXMLRPCServer
 from xmlrpc.client import ServerProxy
 import sys
+import subprocess
+
+subprocess.Popen("python worker-1.py 23001 am", shell=False, close_fds=True)
+subprocess.Popen("python worker-2.py 23002 nz", shell=False, close_fds=True)
+
+#execfile(open('worker-1.py').read())
+#exec(open('worker-2.py 23002 nz').read())
 
 
 workers = {
@@ -12,6 +22,7 @@ workers = {
       
 def getbylocation(location):
     # TODO
+
     with ServerProxy(f"http://localhost:23001/") as proxy:
         result1 = proxy.getbylocation(location)
     with ServerProxy(f"http://localhost:23002/") as proxy:
