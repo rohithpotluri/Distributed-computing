@@ -50,7 +50,7 @@ def getbyyear(location, year):
         if(list(data_table_am.items())[i][1]['location'] == location
         and list(data_table_am.items())[i][1]['year'] == year):
             list1.append(list(data_table_am.items())[i][1])
-
+    #delay for 10 secs
     time.sleep(10)
     print(f"Total size of data : {len(list1)}")
     return list1
